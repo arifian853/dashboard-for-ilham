@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import { LandingPage } from './Pages/LandingPage.jsx'
+import { UserAuthContextProvider } from './Context/UserAuthContext'
+import { Dashboard } from './Pages/Dashboard'
+import { ProtectedRoute } from './Components/ProtectedRoute'
+import { LoginPage } from './Pages/LoginPage'
+import { NotFound } from './Pages/NotFound'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      <UserAuthContextProvider>
+        <Routes>
+          <Route path='*' element={<NotFound />} />
+          <Route path='/' element={<LandingPage />}></Route>
 
-export default App;
+          <Route path='/login' element={<LoginPage />}></Route>
+
+          <Route path='/dashboard' element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>} />
+          
+        </Routes>
+      </UserAuthContextProvider>
+    </>
+  )
+}
