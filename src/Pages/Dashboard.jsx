@@ -1,18 +1,31 @@
 import { React, useEffect, useState } from 'react'
 import { DashboardBody } from '../Components/DashboardBody';
-import { getDegree } from '../Utils/DataFetcher';
+import { getData } from '../Utils/DataFetcher';
 import { Helmet } from 'react-helmet';
 
 export const Dashboard = () => {
-  const [degree, setDegree] = useState([]);
+  const [values, setValues] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getDegree().then(({ data }) => {
-      setDegree(data);
+    getData().then(({ data }) => {
+      setValues(data);
       setLoading(false);
-    });
+    }); 
 
+    return () => {
+      setLoading(true);
+    }
+  }, [])
+
+  useEffect(() => {
+    setInterval(() => {
+      getData().then(({ data }) => {
+        setValues(data);
+        setLoading(false);
+      });
+    }, 1000);
+    
     return () => {
       setLoading(true);
     }
@@ -24,6 +37,15 @@ export const Dashboard = () => {
       </div>
     )
   }
+
+  
+  if (loading) {
+      return (
+        <div className="loading">
+          <span class="loader"></span>
+        </div>
+      )
+    }
   return (
     <>
       <Helmet>
@@ -31,7 +53,7 @@ export const Dashboard = () => {
           Welcome !
         </title>
       </Helmet>
-      <DashboardBody degree={degree} />
+      <DashboardBody values={values} />
     </>
 
 
