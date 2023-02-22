@@ -112,11 +112,19 @@ body {
   color: var(--bg-black);
 }
 
+.monitor {
+  background-color: var(--bg-white);
+}
+
 .greeting {
-  color: var(--bg-black);
+  color: var(--white);
+  border: 1px solid var(--bg-black);
+  background-color: var(--dark-blue);
+  margin: 1em;
 }
 
 .temp {
   border: 1px solid var(--bg-black);
   color: var(--bg-black);
+  width: 250px;
 }

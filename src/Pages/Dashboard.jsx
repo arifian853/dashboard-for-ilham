@@ -50,7 +50,7 @@ export const Dashboard = () => {
     <>
       <Helmet>
         <title>
-          Welcome !
+          Dashboard
         </title>
       </Helmet>
       <DashboardBody values={values} />
