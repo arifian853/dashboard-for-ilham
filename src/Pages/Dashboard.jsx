@@ -30,6 +30,13 @@ export const Dashboard = () => {
       setLoading(true);
     }
   }, []);
+
+  const reFetch = async () => {
+    getData().then(({ data }) => {
+      setValues(data);
+      setLoading(true);
+    }); 
+  }
   if (loading) {
     return (
       <div className="loading">
@@ -53,7 +60,7 @@ export const Dashboard = () => {
           Dashboard
         </title>
       </Helmet>
-      <DashboardBody values={values} />
+      <DashboardBody values={values} reFetch={reFetch} />
     </>
 
 
