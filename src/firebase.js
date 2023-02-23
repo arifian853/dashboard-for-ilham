@@ -3,14 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from  "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDJAlUYWGOSH4eVMNCJ0UJ47r1IcuKlyew",
-  authDomain: "mytestbed-9e98e.firebaseapp.com",
-  databaseURL: "https://mytestbed-9e98e-default-rtdb.firebaseio.com",
-  projectId: "mytestbed-9e98e",
-  storageBucket: "mytestbed-9e98e.appspot.com",
-  messagingSenderId: "485671148561",
-  appId: "1:485671148561:web:7873a14a3ef92db479e5b0",
-  measurementId: "G-42M4JS63GF"
+  apiKey: "AIzaSyC_yAin1jWt5RKAs-Y0uyk_7gzeRH-F-4Y",
+  authDomain: "brin-twav.firebaseapp.com",
+  databaseURL: "https://brin-twav-default-rtdb.firebaseio.com",
+  projectId: "brin-twav",
+  storageBucket: "brin-twav.appspot.com",
+  messagingSenderId: "629870480963",
+  appId: "1:629870480963:web:bdbfa57ab75645ded6cef6"
 };
 
 // Initialize Firebase
